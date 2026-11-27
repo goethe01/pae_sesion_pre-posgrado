@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=5, user-scalable=yes">
-    <title>Información para Estudiantes de Posgrado | Facultad de Minas - UNAL</title>
+    <title>Información para Estudiantes | Facultad de Minas - UNAL</title>
 
     <!-- Favicon e Iconos -->
     <link href="https://minas.medellin.unal.edu.co/media/templates/site/unal/images/favicon.ico" rel="icon"
@@ -1264,7 +1264,7 @@
         }
 
         /* ============================================================
-           AÑADIDOS VERSIÓN POSGRADO
+           AÑADIDOS VERSIÓN UNIFICADA (pregrado + posgrado)
            Modales sin JavaScript: se abren con :target (enlace #modal-x)
            y se cierran enlazando de vuelta a la sección de origen.
         ============================================================ */
@@ -1293,25 +1293,18 @@
             text-decoration: none;
         }
 
-        /* Hero con 3 imágenes: ciclo de 18s (6s por imagen) */
-        .unal-app .hero-bg--3 .hero-bg__slide {
-            animation-name: heroFade3;
-            animation-duration: 18s;
+        /* Grupos dentro de un modal (p. ej. Pregrado / Posgrado) */
+        .unal-app .modal-group + .modal-group {
+            margin-top: 22px;
         }
 
-        @keyframes heroFade3 {
-            0%   { opacity: 0; transform: scale(1.08); }
-            8%   { opacity: 1; }
-            33%  { opacity: 1; }
-            41%  { opacity: 0; transform: scale(1); }
-            100% { opacity: 0; transform: scale(1); }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .unal-app .hero-bg--3 {
-                grid-template-columns: repeat(3, 1fr);
-                grid-template-rows: 1fr;
-            }
+        .unal-app .modal-group-title {
+            margin: 0 0 10px;
+            color: var(--primary-dark);
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
         }
 
         /* Enlace destacado dentro de un modal (p. ej. becas en el exterior) */
@@ -1476,30 +1469,31 @@
         <div class="unal-app">
 
             <!-- ==========================================
-                 1. HERO — FULL SCREEN (3 imágenes, ciclo 18s)
+                 1. HERO — FULL SCREEN (4 imágenes, ciclo 24s)
             =========================================== -->
             <section class="hero" id="inicio">
-                <div class="hero-bg hero-bg--3" aria-hidden="true">
+                <div class="hero-bg" aria-hidden="true">
+                    <div class="hero-bg__slide" style="background-image: url('img/inducciones_Pregrado_2026_14.jpg.jpeg');"></div>
                     <div class="hero-bg__slide" style="background-image: url('img/Induccion_Posgrados_202602_02.jpg.jpeg');"></div>
                     <div class="hero-bg__slide" style="background-image: url('img/hero-arco-minas.webp');"></div>
                     <div class="hero-bg__slide" style="background-image: url('img/mural-cupula.webp');"></div>
                 </div>
                 <div class="app-container hero-content">
                     <span class="eyebrow">Facultad de Minas · Sede Medellín</span>
-                    <h1>Información para estudiantes de posgrado</h1>
-                    <p>Especializaciones, maestrías y doctorados: encuentra en un solo lugar los servicios, trámites,
-                        plataformas y oportunidades que necesitas durante tu posgrado.</p>
+                    <h1>Información para estudiantes</h1>
+                    <p>Pregrado y posgrado: encuentra en un solo lugar los servicios, trámites, plataformas y
+                        oportunidades que necesitas durante tu vida universitaria.</p>
                     <div class="hero-buttons">
                         <a href="#servicios" class="btn btn-primary">
                             <i class="fa-solid fa-compass"></i> Explorar servicios
                         </a>
-                        <a href="#modal-nuevo" class="btn btn-secondary">Soy recién admitido</a>
+                        <a href="#modal-nuevo" class="btn btn-secondary">Soy estudiante nuevo</a>
                     </div>
                 </div>
             </section>
 
             <!-- ==========================================
-                 2. SERVICIOS (mismas 6 categorías que pregrado)
+                 2. SERVICIOS
             =========================================== -->
             <section class="band band--soft" id="servicios">
                 <div class="app-container">
@@ -1512,13 +1506,13 @@
                         <a class="hub-card" href="#modal-academico">
                             <div class="hub-icon"><i class="fa-solid fa-graduation-cap"></i></div>
                             <h3>Vida académica</h3>
-                            <p>SIA, calendario, inscripción de asignaturas y normativa de posgrado.</p>
+                            <p>SIA, calendario, inscripción de asignaturas, notas y normativa.</p>
                             <span>Ver información <i class="fa-solid fa-arrow-right"></i></span>
                         </a>
                         <a class="hub-card" href="#modal-bienestar">
                             <div class="hub-icon"><i class="fa-solid fa-heart-pulse"></i></div>
                             <h3>Bienestar y apoyos</h3>
-                            <p>SIBU, salud, acompañamiento, apoyos socioeconómicos y deporte.</p>
+                            <p>SIBU, salud, acompañamiento, apoyos socioeconómicos, cultura y deporte.</p>
                             <span>Ver información <i class="fa-solid fa-arrow-right"></i></span>
                         </a>
                         <a class="hub-card" href="#modal-tramites">
@@ -1529,8 +1523,8 @@
                         </a>
                         <a class="hub-card" href="#modal-oportunidades">
                             <div class="hub-icon"><i class="fa-solid fa-earth-americas"></i></div>
-                            <h3>Convocatorias y becas</h3>
-                            <p>Becas en el exterior, estudiantes auxiliares, movilidad e investigación.</p>
+                            <h3>Oportunidades</h3>
+                            <p>Becas en el exterior, movilidad, investigación y convocatorias.</p>
                             <span>Ver información <i class="fa-solid fa-arrow-right"></i></span>
                         </a>
                         <a class="hub-card" href="#modal-herramientas">
@@ -1541,8 +1535,8 @@
                         </a>
                         <a class="hub-card" href="#modal-admisiones">
                             <div class="hub-icon"><i class="fa-solid fa-calendar-days"></i></div>
-                            <h3>Admisiones y programas de posgrado</h3>
-                            <p>Programas de la Facultad, perfiles, planes de estudio y proceso de admisión.</p>
+                            <h3>Admisiones y programas</h3>
+                            <p>Programas de pregrado y posgrado, proceso de admisión e instructivo de admitidos.</p>
                             <span>Ver información <i class="fa-solid fa-arrow-right"></i></span>
                         </a>
                     </div>
@@ -1561,7 +1555,6 @@
                         <p>Espacios y servicios del Campus Robledo que muchos estudiantes no conocen.</p>
                     </div>
 
-                    <!-- Primeros auxilios (destacado) -->
                     <div class="admission-block">
                         <a class="admission-card admission-card-featured"
                             href="https://minas.medellin.unal.edu.co/bienestar/salud">
@@ -1621,36 +1614,50 @@
                     </div>
                     <div class="faq-container">
                         <details>
-                            <summary>Vengo de otra universidad, ¿por dónde empiezo? <i class="fa-solid fa-plus"></i></summary>
-                            <p>Activa primero tu correo @unal.edu.co, que es la llave de todos los servicios. Luego
-                                revisa el SIA para tu matrícula e inscripción de asignaturas, y el SIBU para los
-                                servicios de Bienestar. Tienes la ruta completa en
-                                <a href="#modal-nuevo">Soy recién admitido</a>.</p>
+                            <summary>¿Dónde puedo consultar mis notas? <i class="fa-solid fa-plus"></i></summary>
+                            <p>Puedes consultar tus calificaciones, asignaturas e historia académica en el
+                                <a href="https://dninfoa.unal.edu.co">SIA</a>.</p>
                         </details>
                         <details>
-                            <summary>¿Dónde consulto el perfil y el plan de estudios de mi programa? <i class="fa-solid fa-plus"></i></summary>
-                            <p>La información de cada especialización, maestría y doctorado la publica la Vicedecanatura
-                                Académica en <a href="https://minas.medellin.unal.edu.co/formacion/posgrados">Formación ›
-                                    Posgrados</a>.</p>
+                            <summary>¿Dónde reviso las fechas importantes del semestre? <i class="fa-solid fa-plus"></i></summary>
+                            <p>En el <a href="https://minas.medellin.unal.edu.co/estudiantes/gestion-de-asuntos-estudiantiles/gae-calendarios">calendario
+                                    académico</a> vigente de la Sede Medellín.</p>
                         </details>
                         <details>
-                            <summary>¿Dónde hago una solicitud ante el Consejo de Facultad? <i class="fa-solid fa-plus"></i></summary>
-                            <p>Las solicitudes estudiantiles (inscripción o cancelación de asignaturas, reingresos,
-                                reservas de cupo y otras) se tramitan en
+                            <summary>¿Dónde realizo un trámite académico? <i class="fa-solid fa-plus"></i></summary>
+                            <p>Las solicitudes ante el Consejo de Facultad (inscripción o cancelación de asignaturas,
+                                reingresos, reservas de cupo y otras) se hacen en
                                 <a href="https://minas.medellin.unal.edu.co/estudiantes/gestion-de-asuntos-estudiantiles/gae-solicitudes-estudiantiles">Gestión
                                     de Asuntos Estudiantiles</a>.</p>
                         </details>
                         <details>
-                            <summary>¿Hay becas o estancias en el exterior para posgrado? <i class="fa-solid fa-plus"></i></summary>
-                            <p>Sí. La Facultad publica convocatorias de universidades e instituciones del exterior en
-                                <a href="https://minas.medellin.unal.edu.co/investigacion/invitaciones-externas">Invitaciones
-                                    externas</a>. Es una sección poco conocida, revísala con frecuencia.</p>
+                            <summary>¿Dónde consulto el plan de estudios de mi programa? <i class="fa-solid fa-plus"></i></summary>
+                            <p>La Vicedecanatura Académica publica cada programa en
+                                <a href="https://minas.medellin.unal.edu.co/formacion/pregrados">Formación › Pregrados</a> y
+                                <a href="https://minas.medellin.unal.edu.co/formacion/posgrados">Formación › Posgrados</a>.</p>
+                        </details>
+                        <details>
+                            <summary>Llego a un posgrado desde otra universidad, ¿por dónde empiezo? <i class="fa-solid fa-plus"></i></summary>
+                            <p>Activa primero tu correo @unal.edu.co, que es la llave de todos los servicios. Luego
+                                revisa el SIA para tu matrícula y el SIBU para Bienestar. Tienes la ruta completa en
+                                <a href="#modal-nuevo">Soy estudiante nuevo</a>.</p>
+                        </details>
+                        <details>
+                            <summary>¿Dónde consulto apoyos económicos? <i class="fa-solid fa-plus"></i></summary>
+                            <p>Bienestar publica los apoyos y convocatorias en el <a href="http://www.sibu.unal.edu.co/login.jsp">SIBU</a>
+                                y en <a href="https://minas.medellin.unal.edu.co/bienestar/gestion-y-fomento-socioeconomico">Gestión
+                                    y Fomento Socioeconómico</a>.</p>
+                        </details>
+                        <details>
+                            <summary>¿Dónde consulto intercambios, movilidad o becas en el exterior? <i class="fa-solid fa-plus"></i></summary>
+                            <p>En <a href="https://minas.medellin.unal.edu.co/movilidad">Movilidad</a> y en
+                                <a href="https://minas.medellin.unal.edu.co/invitaciones-externas">Invitaciones externas</a>,
+                                donde la Facultad publica becas y estancias de instituciones del exterior.</p>
                         </details>
                         <details>
                             <summary>¿Dónde revalido o repongo mi carné? <i class="fa-solid fa-plus"></i></summary>
-                            <p>En la División de Registro y Matrícula de la Sede, teléfono (+57) 604 430 9666, correo
-                                <a href="mailto:posgrado_med@unal.edu.co">posgrado_med@unal.edu.co</a>. Más detalles en
-                                <a href="#modal-carne">Carné estudiantil</a>.</p>
+                            <p>En la División de Registro y Matrícula de la Sede, teléfono (+57) 604 430 9666. Más
+                                detalles en <a href="#modal-carne">Carné estudiantil</a>.</p>
                         </details>
                         <details>
                             <summary>¿Qué necesito para graduarme? <i class="fa-solid fa-plus"></i></summary>
@@ -1676,18 +1683,18 @@
                         <div class="contact-options">
                             <a href="https://minas.medellin.unal.edu.co/estudiantes/gestion-de-asuntos-estudiantiles">
                                 <i class="fa-solid fa-user-graduate"></i>
-                                <div><strong>Gestión de Asuntos Estudiantiles</strong><span>Solicitudes ante el Consejo
-                                        de Facultad</span></div>
+                                <div><strong>Gestión de Asuntos Estudiantiles</strong><span>Trámites y orientación
+                                        académica</span></div>
                             </a>
                             <a href="https://minas.medellin.unal.edu.co/bienestar/inicio">
                                 <i class="fa-solid fa-heart"></i>
                                 <div><strong>Bienestar Universitario</strong><span>Bloque M4, oficina 002 · (604) 425
                                         5032</span></div>
                             </a>
-                            <a href="mailto:posgrado_med@unal.edu.co">
+                            <a href="https://registroymatricula.medellin.unal.edu.co/">
                                 <i class="fa-solid fa-file-circle-check"></i>
-                                <div><strong>Registro y Matrícula (posgrado)</strong><span>posgrado_med@unal.edu.co ·
-                                        (604) 430 9666</span></div>
+                                <div><strong>Registro y Matrícula</strong><span>(604) 430 9666 · pregrado_med@ ·
+                                        posgrado_med@unal.edu.co</span></div>
                             </a>
                             <a href="tel:+576044255000">
                                 <i class="fa-solid fa-phone"></i>
@@ -1705,44 +1712,50 @@
     <!-- 5. MODALES (sin JavaScript: se abren con #id y se cierran volviendo a la sección) -->
     <div class="unal-app">
 
-        <!-- MODAL RECIÉN ADMITIDO -->
+        <!-- MODAL ESTUDIANTE NUEVO -->
         <div class="modal" id="modal-nuevo">
             <a class="modal-overlay" href="#inicio" aria-label="Cerrar"></a>
             <div class="modal-content">
                 <a class="modal-close" href="#inicio" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
                 <div class="modal-header">
                     <div class="modal-icon"><i class="fa-solid fa-compass"></i></div>
-                    <div><span class="modal-label">Recién admitido</span>
-                        <h2>Primeros pasos en tu posgrado</h2>
+                    <div><span class="modal-label">Estudiante nuevo</span>
+                        <h2>Primeros pasos en la UNAL</h2>
                     </div>
                 </div>
-                <p class="modal-intro">Muchos llegan de otras universidades y no conocen los sistemas de la UNAL.
-                    Esta es la ruta para empezar sin perderte.</p>
+                <p class="modal-intro">Si acabas de ingresar, a pregrado o a posgrado, empieza por estos pasos.</p>
                 <div class="modal-links">
-                    <a href="https://identidad.unal.edu.co" class="modal-link">
-                        <div><strong><span class="step-num">01</span>Correo e identidad</strong><span>Tu cuenta
+                    <a href="https://smartkey.xertica.com/cloudkey/a/unal.edu.co/user/login" class="modal-link">
+                        <div><strong><span class="step-num">01</span>Correo institucional</strong><span>Tu cuenta
                                 @unal.edu.co es la llave de acceso a todos los servicios.</span></div><i
                             class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
-                    <a href="https://dninfoa.unal.edu.co" class="modal-link">
-                        <div><strong><span class="step-num">02</span>Matrícula en el SIA</strong><span>Inscribe
-                                asignaturas y revisa tu estado académico.</span></div><i
+                    <a href="https://dninfoa.unal.edu.co/instructivos.php" class="modal-link">
+                        <div><strong><span class="step-num">02</span>SIA</strong><span>Consulta materias, horarios y
+                                notas; aquí inscribes asignaturas.</span></div><i
+                            class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://minas.medellin.unal.edu.co/estudiantes/gestion-de-asuntos-estudiantiles/gae-calendarios"
+                        class="modal-link">
+                        <div><strong><span class="step-num">03</span>Calendario académico</strong><span>Revisa las
+                                fechas importantes del semestre.</span></div><i
                             class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
                     <a href="#modal-carne" class="modal-link">
-                        <div><strong><span class="step-num">03</span>Tu carné</strong><span>Lo necesitas para entrar al
+                        <div><strong><span class="step-num">04</span>Tu carné</strong><span>Lo necesitas para entrar al
                                 campus y usar varios servicios.</span></div><i class="fa-solid fa-arrow-right"></i>
                     </a>
-                    <a href="https://minas.medellin.unal.edu.co/estudiantes/gestion-de-asuntos-estudiantiles" class="modal-link">
-                        <div><strong><span class="step-num">04</span>Tus trámites</strong><span>Solicitudes ante el
-                                Consejo en Gestión de Asuntos Estudiantiles.</span></div><i
+                    <a href="https://minas.medellin.unal.edu.co/bienestar/inicio" class="modal-link">
+                        <div><strong><span class="step-num">05</span>Bienestar Universitario</strong><span>Conoce
+                                apoyos, salud y acompañamiento.</span></div><i
                             class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
-                    <a href="http://www.sibu.unal.edu.co/login.jsp" class="modal-link">
-                        <div><strong><span class="step-num">05</span>Bienestar</strong><span>Acompañamiento, salud y
-                                apoyos socioeconómicos desde el SIBU.</span></div><i
-                            class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
+                </div>
+                <div class="modal-tip"><i class="fa-solid fa-lightbulb"></i>
+                    <div><strong>Si llegas a un posgrado desde otra universidad</strong>
+                        <p>Los sistemas de la UNAL son nuevos para ti: activa primero el correo y la cuenta en
+                            Identidad UNAL, y luego entra al SIA.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1770,14 +1783,20 @@
                                 académico.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
                     <a href="https://dninfoa.unal.edu.co/docs/Infografia_inscripcion_asignaturas.pdf" class="modal-link">
-                        <div><strong>Inscripción de asignaturas</strong><span>Inscripción, adición y
+                        <div><strong>Inscripción de asignaturas</strong><span>Información sobre inscripción, adición y
                                 cancelación.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
                     <a href="https://minas.medellin.unal.edu.co/estudiantes/gestion-de-asuntos-estudiantiles/gae-normativa"
                         class="modal-link">
-                        <div><strong>Normativa estudiantil</strong><span>Estatuto Estudiantil, derechos, deberes y
-                                normativa de posgrado.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <div><strong>Estatuto Estudiantil y normativa</strong><span>Derechos, deberes y normativa
+                                académica de pregrado y posgrado.</span></div><i
+                            class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
+                </div>
+                <div class="modal-tip"><i class="fa-solid fa-lightbulb"></i>
+                    <div><strong>Si eres estudiante nuevo</strong>
+                        <p>Revisa primero el SIA y el calendario académico.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1819,6 +1838,14 @@
                                 y préstamo de implementos.</span></div><i
                             class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
+                    <a href="https://minascontigo.vercel.app/" class="modal-link">
+                        <div><strong>Minas contigo</strong><span>Entrenamientos personalizados, seguimiento de progreso
+                                y recursos.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://bienestaruniversitario.medellin.unal.edu.co/" class="modal-link">
+                        <div><strong>Cultura</strong><span>Grupos, talleres y eventos culturales de Bienestar de la
+                                Sede.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
                     <a href="https://minas.medellin.unal.edu.co/bienestar/linea-de-atencion" class="modal-link">
                         <div><strong>Líneas de atención</strong><span>Canales de ayuda y orientación.</span></div><i
                             class="fa-solid fa-arrow-up-right-from-square"></i>
@@ -1838,37 +1865,64 @@
                         <h2>Trámites estudiantiles</h2>
                     </div>
                 </div>
-                <p class="modal-intro">Consulta los principales trámites y solicitudes de posgrado.</p>
-                <div class="modal-links">
-                    <a href="https://minas.medellin.unal.edu.co/estudiantes/gestion-de-asuntos-estudiantiles/gae-solicitudes-estudiantiles"
-                        class="modal-link">
-                        <div><strong>Solicitudes ante el Consejo de Facultad</strong><span>Reingresos, reservas de
-                                cupo, cancelaciones y demás solicitudes.</span></div><i
-                            class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
-                    <a href="https://minas.medellin.unal.edu.co/estudiantes/gestion-de-asuntos-estudiantiles/gae-solicitudes-estudiantiles/gae-solicitud-inscripcion-adicion-asignatura-s-y-o-actividad-es-academica-s"
-                        class="modal-link">
-                        <div><strong>Inscripción o adición de asignaturas</strong><span>Requisitos y procedimiento.</span></div><i
-                            class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
-                    <a href="https://minas.medellin.unal.edu.co/estudiantes/gestion-de-asuntos-estudiantiles/gae-solicitudes-estudiantiles/gae-solicitud-cancelacion-de-asignatura-s"
-                        class="modal-link">
-                        <div><strong>Cancelación de asignaturas</strong><span>Requisitos y procedimiento.</span></div><i
-                            class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
-                    <a href="https://minas.medellin.unal.edu.co/graduandos" class="modal-link">
-                        <div><strong>Graduandos</strong><span>Requisitos, fechas y proceso para tu grado.</span></div><i
-                            class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
-                    <a href="https://pagovirtual.unal.edu.co/" class="modal-link">
-                        <div><strong>Certificados y constancias</strong><span>Solicitud y pago en Pago Virtual.</span></div><i
-                            class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
+                <p class="modal-intro">Consulta los principales trámites y solicitudes estudiantiles.</p>
+                <div class="modal-group">
+                    <p class="modal-group-title">Para todos los estudiantes</p>
+                    <div class="modal-links">
+                        <a href="https://minas.medellin.unal.edu.co/estudiantes/gestion-de-asuntos-estudiantiles/gae-solicitudes-estudiantiles/gae-solicitud-inscripcion-adicion-asignatura-s-y-o-actividad-es-academica-s"
+                            class="modal-link">
+                            <div><strong>Inscripción o adición de asignaturas y actividades académicas</strong><span>Requisitos
+                                    y procedimiento.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                        <a href="https://minas.medellin.unal.edu.co/estudiantes/gestion-de-asuntos-estudiantiles/gae-solicitudes-estudiantiles/gae-solicitud-cancelacion-de-asignatura-s"
+                            class="modal-link">
+                            <div><strong>Cancelación de asignaturas</strong><span>Requisitos y procedimiento.</span></div><i
+                                class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                        <a href="https://minas.medellin.unal.edu.co/graduandos" class="modal-link">
+                            <div><strong>Graduandos</strong><span>Requisitos, fechas y proceso para tu grado.</span></div><i
+                                class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                        <a href="https://pagovirtual.unal.edu.co/" class="modal-link">
+                            <div><strong>Certificados y constancias</strong><span>Solicitud y pago en Pago Virtual.</span></div><i
+                                class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="modal-group">
+                    <p class="modal-group-title">Pregrado</p>
+                    <div class="modal-links">
+                        <a href="https://minas.medellin.unal.edu.co/estudiantes/gestion-de-asuntos-estudiantiles/gae-solicitudes-estudiantiles/gae-solicitud-carga-inferior-a-la-minima"
+                            class="modal-link">
+                            <div><strong>Carga inferior a la mínima</strong><span>Inscribir menos créditos de los
+                                    exigidos en el semestre.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                        <a href="https://minas.medellin.unal.edu.co/estudiantes/gestion-de-asuntos-estudiantiles/gae-solicitudes-estudiantiles/gae-solicitud-trabajo-de-grado-tdg"
+                            class="modal-link">
+                            <div><strong>Trabajo de Grado (TDG)</strong><span>Requisitos, modalidades y solicitud.</span></div><i
+                                class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                        <a href="https://minas.medellin.unal.edu.co/estudiantes/gestion-de-asuntos-estudiantiles/gae-solicitudes-estudiantiles/gae-solicitud-practica-academica-especial-pae"
+                            class="modal-link">
+                            <div><strong>Práctica Académica Especial (PAE)</strong><span>Requisitos y solicitud de la
+                                    práctica.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="modal-group">
+                    <div class="modal-links">
+                        <a href="https://minas.medellin.unal.edu.co/estudiantes/gestion-de-asuntos-estudiantiles/gae-solicitudes-estudiantiles"
+                            class="modal-link modal-link--featured">
+                            <div><strong>Todos los trámites</strong><span>Reingresos, reservas de cupo y el resto de
+                                    solicitudes ante el Consejo de Facultad, de pregrado y posgrado.</span></div><i
+                                class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- MODAL CONVOCATORIAS -->
+        <!-- MODAL OPORTUNIDADES -->
         <div class="modal" id="modal-oportunidades">
             <a class="modal-overlay" href="#servicios" aria-label="Cerrar"></a>
             <div class="modal-content">
@@ -1876,33 +1930,33 @@
                 <div class="modal-header">
                     <div class="modal-icon"><i class="fa-solid fa-earth-americas"></i></div>
                     <div><span class="modal-label">Convocatorias</span>
-                        <h2>Convocatorias y becas</h2>
+                        <h2>Oportunidades para estudiantes</h2>
                     </div>
                 </div>
-                <p class="modal-intro">Apoyos vigentes para posgrado, incluidas oportunidades que suelen pasar
-                    desapercibidas.</p>
+                <p class="modal-intro">Explora oportunidades académicas, profesionales y de movilidad, incluidas
+                    algunas que suelen pasar desapercibidas.</p>
                 <div class="modal-links">
-                    <a href="https://minas.medellin.unal.edu.co/investigacion/invitaciones-externas"
+                    <a href="https://minas.medellin.unal.edu.co/invitaciones-externas"
                         class="modal-link modal-link--featured">
                         <div><strong>Invitaciones externas · Becas en el exterior <span class="pill">Poco conocida</span></strong><span>Becas
-                                y estancias de universidades del exterior. Casi nadie sabe que existe esta sección, y por
+                                y estancias de instituciones del exterior. Casi nadie sabe que existe esta sección, y por
                                 eso casi nadie se postula.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://minas.medellin.unal.edu.co/movilidad#detalle-movilidad" class="modal-link">
+                        <div><strong>Movilidad académica</strong><span>Intercambios y estancias nacionales e
+                                internacionales.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://minas.medellin.unal.edu.co/investigacion" class="modal-link">
+                        <div><strong>Investigación</strong><span>Semilleros, grupos y convocatorias.</span></div><i
+                            class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
                     <a href="http://www.sibu.unal.edu.co/login.jsp" class="modal-link">
                         <div><strong>Estudiantes auxiliares</strong><span>Convocatoria semestral.</span></div><i
                             class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
-                    <a href="https://minas.medellin.unal.edu.co/movilidad#detalle-movilidad" class="modal-link">
-                        <div><strong>Movilidad académica</strong><span>Intercambios y pasantías nacionales e
-                                internacionales.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
-                    <a href="https://minas.medellin.unal.edu.co/investigacion" class="modal-link">
-                        <div><strong>Convocatorias de investigación</strong><span>Grupos, semilleros y convocatorias de
-                                la Vicedecanatura.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
                     <a href="https://www.medellin.unal.edu.co/~sede/estudiantes/convocatorias.html" class="modal-link">
-                        <div><strong>Convocatorias UNAL</strong><span>Convocatorias de apoyo de la Sede.</span></div><i
-                            class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <div><strong>Convocatorias UNAL</strong><span>Convocatorias de apoyo académico y
+                                administrativo de la Sede.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
                 </div>
             </div>
@@ -1916,15 +1970,14 @@
                 <div class="modal-header">
                     <div class="modal-icon"><i class="fa-solid fa-laptop-code"></i></div>
                     <div><span class="modal-label">Recursos digitales</span>
-                        <h2>Sistemas que vas a usar</h2>
+                        <h2>Herramientas institucionales</h2>
                     </div>
                 </div>
-                <p class="modal-intro">Qué es cada uno y para qué sirve, pensado para quien recién llega a la
-                    Universidad.</p>
+                <p class="modal-intro">Las plataformas que vas a usar y para qué sirve cada una.</p>
                 <div class="modal-links">
                     <a href="https://smartkey.xertica.com/cloudkey/a/unal.edu.co/user/login" class="modal-link">
-                        <div><strong>Correo institucional</strong><span>Cuenta @unal.edu.co, acceso a todos los
-                                servicios.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <div><strong>Correo institucional</strong><span>Comunicación oficial de la Universidad.</span></div><i
+                            class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
                     <a href="https://identidad.unal.edu.co" class="modal-link">
                         <div><strong>Identidad UNAL</strong><span>Gestión de tu cuenta y contraseñas.</span></div><i
@@ -1938,20 +1991,20 @@
                         <div><strong>SIBU</strong><span>Sistema de Información de Bienestar Universitario.</span></div><i
                             class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
-                    <a href="https://bibliotecas.unal.edu.co/sede-medellin" class="modal-link">
-                        <div><strong>Bibliotecas UNAL</strong><span>Catálogo, bases de datos y recursos
-                                electrónicos.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
-                    <a href="https://pagovirtual.unal.edu.co/" class="modal-link">
-                        <div><strong>Pago Virtual</strong><span>Pago de derechos académicos y certificados.</span></div><i
-                            class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
                     <a href="https://unvirtual.medellin.unal.edu.co/login/index.php" class="modal-link">
-                        <div><strong>UNVirtual</strong><span>Aulas y recursos virtuales de aprendizaje.</span></div><i
+                        <div><strong>UNVirtual</strong><span>Entornos y recursos virtuales de aprendizaje.</span></div><i
                             class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
                     <a href="https://minaslap.net/login/index.php" class="modal-link">
                         <div><strong>Minaslap</strong><span>Plataforma de cursos de la Facultad de Minas.</span></div><i
+                            class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://bibliotecas.unal.edu.co/sede-medellin" class="modal-link">
+                        <div><strong>Bibliotecas UNAL</strong><span>Libros, bases de datos y recursos académicos.</span></div><i
+                            class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://pagovirtual.unal.edu.co/" class="modal-link">
+                        <div><strong>Pago Virtual</strong><span>Pago de derechos académicos y certificados.</span></div><i
                             class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
                 </div>
@@ -1965,25 +2018,48 @@
                 <a class="modal-close" href="#servicios" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
                 <div class="modal-header">
                     <div class="modal-icon"><i class="fa-solid fa-calendar-days"></i></div>
-                    <div><span class="modal-label">Admisiones Posgrado</span>
-                        <h2>Admisiones y programas de posgrado</h2>
+                    <div><span class="modal-label">Admisiones</span>
+                        <h2>Admisiones y programas</h2>
                     </div>
                 </div>
-                <p class="modal-intro">La Facultad ofrece especializaciones, maestrías y doctorados. La información de
-                    cada programa la publica la Vicedecanatura Académica.</p>
-                <div class="modal-links">
-                    <a href="https://minas.medellin.unal.edu.co/formacion/posgrados" class="modal-link">
-                        <div><strong>Programas de posgrado</strong><span>Perfiles, planes de estudio y contacto de cada
-                                programa.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
-                    <a href="https://admisiones.unal.edu.co/posgrado/" class="modal-link">
-                        <div><strong>Admisiones UNAL · Posgrado</strong><span>Convocatorias, inscripción y
-                                fechas.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
-                    <a href="https://registroymatricula.medellin.unal.edu.co/" class="modal-link">
-                        <div><strong>Registro y Matrícula</strong><span>Instructivo de admitidos y formalización de
-                                matrícula.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
+                <p class="modal-intro">La información de cada programa la publica la Vicedecanatura Académica; el
+                    proceso de admisión lo maneja la Dirección Nacional de Admisiones.</p>
+                <div class="modal-group">
+                    <p class="modal-group-title">Pregrado</p>
+                    <div class="modal-links">
+                        <a href="https://minas.medellin.unal.edu.co/formacion/pregrados" class="modal-link">
+                            <div><strong>Programas de pregrado</strong><span>Ingenierías de la Facultad: perfiles y
+                                    planes de estudio.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                        <a href="https://admisiones.unal.edu.co/pregrado/" class="modal-link">
+                            <div><strong>Admisiones UNAL · Pregrado</strong><span>Convocatorias, inscripción y
+                                    fechas.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="modal-group">
+                    <p class="modal-group-title">Posgrado</p>
+                    <div class="modal-links">
+                        <a href="https://minas.medellin.unal.edu.co/formacion/posgrados" class="modal-link">
+                            <div><strong>Programas de posgrado</strong><span>Especializaciones, maestrías y doctorados:
+                                    perfiles y planes de estudio.</span></div><i
+                                class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                        <a href="https://admisiones.unal.edu.co/posgrado/" class="modal-link">
+                            <div><strong>Admisiones UNAL · Posgrado</strong><span>Convocatorias, inscripción y
+                                    fechas.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="modal-group">
+                    <p class="modal-group-title">Si ya te admitieron</p>
+                    <div class="modal-links">
+                        <a href="https://registroymatricula.medellin.unal.edu.co/" class="modal-link">
+                            <div><strong>Registro y Matrícula</strong><span>Instructivo de admitidos, formalización de
+                                    matrícula y primer carné.</span></div><i
+                                class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2009,9 +2085,10 @@
                                 Registro y Matrícula. Si te admitieron, el primer carné no tiene costo.</span></div><i
                             class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
-                    <a href="mailto:posgrado_med@unal.edu.co" class="modal-link">
-                        <div><strong>Revalidación</strong><span>Registro y Matrícula · (604) 430 9666 ·
-                                posgrado_med@unal.edu.co</span></div><i class="fa-solid fa-envelope"></i>
+                    <a href="https://registroymatricula.medellin.unal.edu.co/" class="modal-link">
+                        <div><strong>Revalidación</strong><span>Registro y Matrícula · (604) 430 9666 · pregrado:
+                                pregrado_med@unal.edu.co · posgrado: posgrado_med@unal.edu.co</span></div><i
+                            class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
                     <a href="https://registroymatricula.medellin.unal.edu.co/" class="modal-link">
                         <div><strong>Pérdida o reposición</strong><span>La reposición tiene costo. Si no reclamas el
