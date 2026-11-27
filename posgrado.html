@@ -1,0 +1,2052 @@
+<!DOCTYPE html>
+<html lang="es-es" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=5, user-scalable=yes">
+    <title>Información para Estudiantes de Posgrado | Facultad de Minas - UNAL</title>
+
+    <!-- Favicon e Iconos -->
+    <link href="https://minas.medellin.unal.edu.co/media/templates/site/unal/images/favicon.ico" rel="icon"
+        type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+    <!-- Estilos Oficiales UNAL (Joomla Template) -->
+    <link href="https://minas.medellin.unal.edu.co/media/templates/site/unal/css/frontend.css?2bc458" rel="stylesheet">
+    <link href="https://minas.medellin.unal.edu.co/media/templates/site/unal/css/accesibilidad.css?2bc458"
+        rel="stylesheet">
+    <link href="https://minas.medellin.unal.edu.co/media/templates/site/unal/css/bootstrap.min.css?2bc458"
+        rel="stylesheet">
+    <link href="https://minas.medellin.unal.edu.co/media/templates/site/unal/css/bootstrap-theme.min.css?2bc458"
+        rel="stylesheet">
+    <link href="https://minas.medellin.unal.edu.co/media/templates/site/unal/css/reset.css?2bc458" rel="stylesheet">
+    <link href="https://minas.medellin.unal.edu.co/media/templates/site/unal/css/unal.css?2bc458" rel="stylesheet">
+    <link href="https://minas.medellin.unal.edu.co/media/templates/site/unal/css/base.css?2bc458" rel="stylesheet">
+    <link href="https://minas.medellin.unal.edu.co/media/templates/site/unal/css/tablet.css?2bc458" rel="stylesheet">
+    <link href="https://minas.medellin.unal.edu.co/media/templates/site/unal/css/phone.css?2bc458" rel="stylesheet">
+    <link href="https://minas.medellin.unal.edu.co/media/templates/site/unal/css/small.css?2bc458" rel="stylesheet">
+    <link href="https://minas.medellin.unal.edu.co/media/templates/site/unal/css/sede.css?2bc458" rel="stylesheet">
+    <link href="https://minas.medellin.unal.edu.co/media/templates/site/unal/css/template.css?2bc458" rel="stylesheet">
+    <link href="https://minas.medellin.unal.edu.co/media/templates/site/unal/css/user.css?2bc458" rel="stylesheet">
+
+    <!-- ============================================================
+         ESTILOS UNIFICADOS — PALETA AMARILLA + SISTEMA DE BANDAS
+    ============================================================ -->
+    <style>
+        /* =========================================
+           VARIABLES GLOBALES
+        ========================================= */
+        :root {
+            --primary: #f9ae00;
+            --primary-dark: #c98a00;
+            --primary-light: #fdf3d6;
+
+            --text: #252525;
+            --text-soft: #686868;
+            --text-on-primary: #212529;
+
+            --white: #ffffff;
+            --border: #e3e3e3;
+            --background-soft: #f6f7f6;
+
+            --shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+            --modal-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
+
+            --radius: 18px;
+            /* Ancho máximo del contenido para que no se estire */
+            --container: 1180px;
+            --header-height: 150px;
+
+            /* compatibilidad UNAL */
+            --text-color: #212529;
+            --link-color: var(--primary);
+            --background-color: #f0efea;
+        }
+
+        body {
+            background-color: var(--background-color);
+            margin: 0;
+            /* Evita scroll horizontal por desbordamiento */
+            overflow-x: hidden;
+        }
+
+        /* =========================================
+           MENÚ DESPLEGABLE UNAL
+        ========================================= */
+        .dropdown-menu li:hover,
+        .dropdown-menu li:focus-within,
+        ul.dropdown-menu li:hover,
+        ul.dropdown-menu li:focus-within {
+            background-color: var(--primary, #f9ae00) !important;
+        }
+
+        .dropdown-menu a:hover,
+        .dropdown-menu a:focus,
+        .dropdown-menu a:active,
+        .dropdown-menu li:hover a,
+        .dropdown-item:hover,
+        .dropdown-item:focus,
+        .dropdown-item:active {
+            background-color: var(--primary, #f9ae00) !important;
+            color: var(--text-on-primary) !important;
+            text-decoration: none !important;
+        }
+
+        /* ============================================================
+           WRAPPER DE AISLAMIENTO Y CONTENEDOR
+        ============================================================ */
+        .unal-app {
+            font-family: "Inter", Arial, sans-serif;
+            color: var(--text);
+            background: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .unal-app *,
+        .unal-app *::before,
+        .unal-app *::after {
+            box-sizing: border-box;
+        }
+
+        .unal-app a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .unal-app button {
+            font: inherit;
+        }
+
+        .unal-app img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* ESTA ES LA CORRECCIÓN CLAVE: El contenedor ahora tiene ancho máximo */
+        .app-container {
+            width: min(90%, var(--container));
+            margin: 0 auto;
+            /* Nos aseguramos que sea un bloque flex para heredar la alineación */
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        /* ============================================================
+           SISTEMA DE PANTALLAS COMPLETAS Y BANDAS
+        ============================================================ */
+        .unal-app .band,
+        .unal-app .hero,
+        .unal-app .contact-band,
+        .unal-app .admission-cta {
+            width: 100%;
+            min-height: calc(100vh - var(--header-height));
+            display: flex;
+            flex-direction: column;
+            /* Centrado vertical por defecto para Hero, CTA y Contacto */
+            justify-content: center;
+            padding: 60px 0;
+        }
+
+        /* Para secciones con mucho contenido, alinear arriba para que fluya natural */
+        .unal-app .band--white,
+        .unal-app .band--cream,
+        .unal-app .band--soft {
+            justify-content: flex-start;
+            padding-top: 90px;
+            padding-bottom: 90px;
+        }
+
+        .unal-app .band--white {
+            background: #ffffff;
+        }
+
+        .unal-app .band--cream {
+            background: #fdfaf2;
+        }
+
+        .unal-app .band--soft {
+            background: #f6f7f6;
+        }
+
+        .unal-app .band+.band {
+            border-top: 1px solid var(--border);
+        }
+
+        /* HERO ESPECÍFICO */
+        .unal-app .hero {
+            border-bottom: 4px solid var(--primary);
+        }
+
+        .unal-app .hero-content {
+            max-width: 820px;
+            /* Limita el texto del hero para que no se estire */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* HERO CON IMÁGENES DE FONDO */
+        .unal-app .hero {
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+            background: #1d1d1d;
+        }
+
+        .unal-app .hero .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .unal-app .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .unal-app .hero-bg__slide {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transform: scale(1.08);
+            animation: heroFade 24s infinite;
+            will-change: opacity, transform;
+        }
+
+        /* 4 imágenes x 6s cada una = ciclo de 24s */
+        .unal-app .hero-bg__slide:nth-child(1) { animation-delay: 0s; }
+        .unal-app .hero-bg__slide:nth-child(2) { animation-delay: 6s; }
+        .unal-app .hero-bg__slide:nth-child(3) { animation-delay: 12s; }
+        .unal-app .hero-bg__slide:nth-child(4) { animation-delay: 18s; }
+
+        @keyframes heroFade {
+            0%   { opacity: 0; transform: scale(1.08); }
+            6%   { opacity: 1; }
+            25%  { opacity: 1; }
+            33%  { opacity: 0; transform: scale(1); }
+            100% { opacity: 0; transform: scale(1); }
+        }
+
+        /* Capa oscura para que el texto sea legible */
+        .unal-app .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background:
+                linear-gradient(90deg, rgba(15, 15, 15, 0.88) 0%, rgba(15, 15, 15, 0.65) 45%, rgba(15, 15, 15, 0.25) 100%),
+                linear-gradient(0deg, rgba(15, 15, 15, 0.45) 0%, rgba(15, 15, 15, 0) 40%);
+        }
+
+        .unal-app .hero h1 {
+            color: #ffffff !important;
+            text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+        }
+
+        .unal-app .hero p {
+            color: rgba(255, 255, 255, 0.88) !important;
+        }
+
+        .unal-app .hero .eyebrow {
+            background: rgba(249, 174, 0, 0.92);
+            color: var(--text-on-primary);
+        }
+
+        .unal-app .hero .btn-secondary {
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(4px);
+        }
+
+        .unal-app .hero .btn-secondary:hover {
+            background: #ffffff;
+            color: var(--text);
+            border-color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            .unal-app .hero::before {
+                background: rgba(15, 15, 15, 0.7);
+            }
+        }
+
+        /* Sin animación: las 4 imágenes quedan fijas en mosaico 2x2 */
+        @media (prefers-reduced-motion: reduce) {
+            .unal-app .hero-bg {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+            }
+
+            .unal-app .hero-bg__slide {
+                position: static;
+                opacity: 1;
+                transform: none;
+                animation: none;
+            }
+        }
+
+        .unal-app .eyebrow {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(249, 174, 0, 0.18);
+            color: var(--primary-dark);
+            font-size: 0.8rem;
+            font-weight: 700;
+            align-self: flex-start;
+        }
+
+        .unal-app .hero h1 {
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -2px;
+            color: var(--text);
+        }
+
+        .unal-app .hero p {
+            max-width: 670px;
+            color: var(--text-soft);
+            font-size: 1.08rem;
+            margin-bottom: 34px;
+        }
+
+        .unal-app .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* BOTONES */
+        .unal-app .btn {
+            min-height: 48px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            padding: 0 22px;
+            border-radius: 9px;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+            transition: 0.2s;
+            text-decoration: none;
+        }
+
+        .unal-app .hero-buttons .btn {
+            min-height: 56px;
+            padding: 0 32px;
+            font-size: 1.05rem;
+        }
+
+        .unal-app .btn-primary {
+            background: var(--primary);
+            color: var(--text-on-primary);
+        }
+
+        .unal-app .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            color: var(--white);
+        }
+
+        .unal-app .btn-secondary {
+            background: white;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .unal-app .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary-dark);
+        }
+
+        /* ENCABEZADOS DE SECCIÓN */
+        .unal-app .section-heading {
+            max-width: 700px;
+            margin-bottom: 45px;
+        }
+
+        .unal-app .section-heading.centered {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .unal-app .section-tag {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: var(--primary-dark);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .unal-app .section-tag::before {
+            content: "";
+            display: inline-block;
+            width: 22px;
+            height: 2px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .unal-app .section-heading h2,
+        .unal-app .contact-box h2 {
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            line-height: 1.15;
+            letter-spacing: -1px;
+            color: var(--text);
+            margin: 0 0 14px;
+        }
+
+        .unal-app .section-heading p {
+            color: var(--text-soft);
+            margin: 0;
+        }
+
+        /* ============================================================
+           SECCIÓN ADMISIÓN (TARJETAS)
+        ============================================================ */
+        .unal-app .admission-block {
+            padding: 40px 0;
+        }
+
+        .unal-app .admission-block+.admission-block {
+            border-top: 1px dashed var(--border);
+        }
+
+        .unal-app .admission-block-heading {
+            margin-bottom: 25px;
+        }
+
+        .unal-app .admission-block-heading>span {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--primary-dark);
+            margin-bottom: 6px;
+        }
+
+        .unal-app .admission-block-heading h3 {
+            margin: 0 0 8px;
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .unal-app .admission-block-heading p {
+            margin: 0;
+            color: var(--text-soft);
+        }
+
+        .unal-app .admission-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .unal-app .admission-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 25px;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: inherit;
+            text-decoration: none;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .unal-app .admission-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+        }
+
+        .unal-app .admission-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: rgba(249, 174, 0, 0.15);
+            color: var(--primary-dark);
+            font-size: 1.25rem;
+            margin-bottom: 18px;
+        }
+
+        .unal-app .admission-card h4 {
+            margin: 0 0 9px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .unal-app .admission-card p {
+            flex: 1;
+            margin: 0 0 18px;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--text-soft);
+        }
+
+        .unal-app .admission-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.86rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        .unal-app .admission-card:hover .admission-link {
+            color: var(--text);
+        }
+
+        .unal-app .admission-featured-grid {
+            width: 100%;
+        }
+
+        .unal-app .admission-card-featured {
+            flex-direction: row;
+            align-items: center;
+            gap: 22px;
+            background: #fffdf6;
+            border-left: 4px solid var(--primary);
+        }
+
+        .unal-app .admission-card-featured .admission-icon {
+            flex-shrink: 0;
+            width: 62px;
+            height: 62px;
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .unal-app .admission-card-featured h4 {
+            font-size: 1.2rem;
+        }
+
+        /* ADMISIÓN ESPECIAL */
+        .unal-app .special-admission-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .unal-app .special-admission-card {
+            padding: 25px;
+            background: #fdfbf5;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .unal-app .special-admission-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 18px;
+        }
+
+        .unal-app .special-admission-header .admission-icon {
+            flex-shrink: 0;
+            margin: 0;
+        }
+
+        .unal-app .special-code {
+            display: block;
+            margin-bottom: 4px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            letter-spacing: 0.08em;
+        }
+
+        .unal-app .special-admission-card h4 {
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1.4;
+            color: var(--text);
+        }
+
+        .unal-app .special-admission-card p {
+            color: var(--text-soft);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .unal-app .special-links {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .unal-app .special-links a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 11px 0;
+            border-top: 1px solid #ddd;
+            color: #555;
+            font-size: 0.86rem;
+            text-decoration: none;
+        }
+
+        .unal-app .special-links a:hover {
+            color: var(--primary-dark);
+        }
+
+        .unal-app .special-main-link {
+            display: inline-flex;
+            gap: 8px;
+            margin-top: 10px;
+            color: var(--primary-dark);
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .unal-app .special-main-link:hover {
+            color: var(--text);
+        }
+
+        /* PRUEBAS */
+        .unal-app .tests-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .unal-app .test-card {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: 16px;
+            padding: 20px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: #fff;
+            color: inherit;
+            text-decoration: none;
+            transition: 0.25s ease;
+        }
+
+        .unal-app .test-card>i:first-child {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9px;
+            background: rgba(249, 174, 0, 0.15);
+            color: var(--primary-dark);
+        }
+
+        .unal-app .test-card>i:last-child {
+            color: #999;
+        }
+
+        .unal-app .test-card h4 {
+            margin: 0 0 5px;
+            color: var(--text);
+            font-size: 0.98rem;
+        }
+
+        .unal-app .test-card p {
+            margin: 0;
+            color: var(--text-soft);
+            font-size: 0.82rem;
+        }
+
+        .unal-app .test-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+        }
+
+        /* CTA PORTAL */
+        .unal-app .admission-cta {
+            background: linear-gradient(135deg, #212529 0%, #2e3136 100%);
+            color: #fff;
+        }
+
+        .unal-app .admission-cta .app-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .unal-app .admission-cta h3 {
+            margin: 0 0 6px;
+            color: #fff;
+            font-size: 1.5rem;
+        }
+
+        .unal-app .admission-cta p {
+            margin: 0;
+            color: #ccc;
+            font-size: 0.95rem;
+        }
+
+        /* ============================================================
+           SERVICIOS (HUB)
+        ============================================================ */
+        .unal-app .hub-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .unal-app .hub-card {
+            width: 100%;
+            min-height: 230px;
+            padding: 30px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            cursor: pointer;
+            text-align: left;
+            transition: 0.25s;
+            color: var(--text);
+        }
+
+        .unal-app .hub-card:hover {
+            transform: translateY(-5px);
+            border-color: transparent;
+            box-shadow: var(--shadow);
+        }
+
+        .unal-app .hub-icon {
+            width: 52px;
+            height: 52px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-size: 1.2rem;
+        }
+
+        .unal-app .hub-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+            color: var(--text);
+        }
+
+        .unal-app .hub-card p {
+            min-height: 66px;
+            color: var(--text-soft);
+            font-size: 0.89rem;
+        }
+
+        .unal-app .hub-card span {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 18px;
+            color: var(--primary-dark);
+            font-size: 0.84rem;
+            font-weight: 700;
+        }
+
+        /* ============================================================
+           FAQ
+        ============================================================ */
+        .unal-app .faq-container {
+            max-width: 850px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .unal-app details {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .unal-app summary {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            list-style: none;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .unal-app summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .unal-app details p {
+            max-width: 760px;
+            padding-top: 15px;
+            color: var(--text-soft);
+            font-size: 0.9rem;
+        }
+
+        /* ============================================================
+           CONTACTO FULL WIDTH
+        ============================================================ */
+        .unal-app .contact-band {
+            background: var(--primary);
+        }
+
+        .unal-app .contact-box {
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 55px;
+            color: var(--text-on-primary);
+        }
+
+        .unal-app .section-tag.light {
+            color: var(--text-on-primary);
+            opacity: 0.85;
+        }
+
+        .unal-app .section-tag.light::before {
+            background: var(--text-on-primary);
+        }
+
+        .unal-app .contact-box h2 {
+            color: var(--text-on-primary);
+        }
+
+        .unal-app .contact-box p {
+            margin-top: 14px;
+            color: rgba(33, 37, 41, 0.75);
+        }
+
+        .unal-app .contact-options {
+            display: grid;
+            gap: 10px;
+        }
+
+        .unal-app .contact-options a {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 17px;
+            border: 1px solid rgba(33, 37, 41, 0.15);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.35) !important;
+            color: var(--text-on-primary) !important;
+            transition: 0.2s;
+        }
+
+        .unal-app .contact-options a:hover {
+            background: rgba(255, 255, 255, 0.6) !important;
+        }
+
+        .unal-app .contact-options i {
+            width: 38px;
+            height: 38px;
+            display: grid;
+            place-items: center;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.5);
+            color: var(--text-on-primary);
+        }
+
+        .unal-app .contact-options strong,
+        .unal-app .contact-options span {
+            display: block;
+        }
+
+        .unal-app .contact-options strong {
+            font-size: 0.9rem;
+        }
+
+        .unal-app .contact-options span {
+            color: rgba(33, 37, 41, 0.7);
+            font-size: 0.77rem;
+        }
+
+        /* ============================================================
+           MODALES
+        ============================================================ */
+        .unal-app .modal {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+        }
+
+        .unal-app .modal.active {
+            display: flex;
+        }
+
+        .unal-app .modal-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.58);
+            backdrop-filter: blur(4px);
+        }
+
+        .unal-app .modal-content {
+            position: relative;
+            z-index: 2;
+            width: min(100%, 720px);
+            max-height: 88vh;
+            overflow-y: auto;
+            padding: 35px;
+            border-radius: 22px;
+            background: white;
+            box-shadow: var(--modal-shadow);
+            animation: modalAppear 0.25s ease;
+        }
+
+        @keyframes modalAppear {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .unal-app .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 38px;
+            height: 38px;
+            display: grid;
+            place-items: center;
+            border: none;
+            border-radius: 50%;
+            background: #f1f1f1;
+            color: #444;
+            cursor: pointer;
+        }
+
+        .unal-app .modal-close:hover {
+            background: #e5e5e5;
+        }
+
+        .unal-app .modal-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding-right: 45px;
+            margin-bottom: 20px;
+        }
+
+        .unal-app .modal-icon {
+            flex: 0 0 auto;
+            width: 56px;
+            height: 56px;
+            display: grid;
+            place-items: center;
+            border-radius: 14px;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-size: 1.3rem;
+        }
+
+        .unal-app .modal-label {
+            color: var(--primary-dark);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .unal-app .modal-header h2 {
+            margin-top: 2px;
+            font-size: 1.55rem;
+            line-height: 1.2;
+            color: var(--text);
+        }
+
+        .unal-app .modal-intro {
+            margin-bottom: 25px;
+            color: var(--text-soft);
+            font-size: 0.92rem;
+        }
+
+        .unal-app .modal-links {
+            display: grid;
+            gap: 12px;
+        }
+
+        .unal-app .modal-link {
+            display: grid;
+            grid-template-columns: 1fr 20px;
+            align-items: center;
+            gap: 15px;
+            padding: 17px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: 0.2s;
+            color: var(--text);
+        }
+
+        .unal-app .modal-link:hover {
+            border-color: var(--primary);
+            background: #fffcf2;
+        }
+
+        .unal-app .modal-link strong,
+        .unal-app .modal-link span {
+            display: block;
+        }
+
+        .unal-app .modal-link strong {
+            margin-bottom: 4px;
+            font-size: 0.92rem;
+        }
+
+        .unal-app .modal-link span {
+            color: var(--text-soft);
+            font-size: 0.79rem;
+        }
+
+        .unal-app .modal-link>i {
+            color: var(--primary-dark);
+            font-size: 0.84rem;
+        }
+
+        .unal-app .modal-tip {
+            display: flex;
+            gap: 14px;
+            margin-top: 25px;
+            padding: 18px;
+            border-radius: 12px;
+            background: var(--primary-light);
+        }
+
+        .unal-app .modal-tip>i {
+            margin-top: 3px;
+            color: var(--primary-dark);
+        }
+
+        .unal-app .modal-tip strong {
+            font-size: 0.89rem;
+            color: var(--text-on-primary);
+        }
+
+        .unal-app .modal-tip p {
+            margin-top: 4px;
+            color: #6b5a2a;
+            font-size: 0.8rem;
+        }
+
+        /* FECHAS */
+        .unal-app .modal-large {
+            width: min(100%, 860px);
+        }
+
+        .unal-app .date-group {
+            margin-top: 28px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border);
+        }
+
+        .unal-app .date-group:first-of-type {
+            margin-top: 10px;
+        }
+
+        .unal-app .date-group-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .unal-app .date-group-icon {
+            flex: 0 0 auto;
+            width: 44px;
+            height: 44px;
+            display: grid;
+            place-items: center;
+            border-radius: 11px;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+        }
+
+        .unal-app .date-group-header span {
+            display: block;
+            margin-bottom: 2px;
+            color: var(--primary-dark);
+            font-size: 0.73rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .unal-app .date-group-header h3 {
+            max-width: 660px;
+            font-size: 1.05rem;
+            line-height: 1.35;
+            color: var(--text);
+        }
+
+        .unal-app .date-list {
+            display: grid;
+            gap: 10px;
+        }
+
+        .unal-app .date-item {
+            display: grid;
+            grid-template-columns: 38px 1fr 18px;
+            align-items: center;
+            gap: 12px;
+            padding: 15px;
+            border: 1px solid var(--border);
+            border-radius: 11px;
+            transition: 0.2s;
+            color: var(--text);
+        }
+
+        .unal-app .date-item:hover {
+            border-color: var(--primary);
+            background: #fffcf2;
+        }
+
+        .unal-app .date-marker {
+            width: 36px;
+            height: 36px;
+            display: grid;
+            place-items: center;
+            border-radius: 9px;
+            background: var(--background-soft);
+            color: var(--primary-dark);
+        }
+
+        .unal-app .date-item strong,
+        .unal-app .date-item span {
+            display: block;
+        }
+
+        .unal-app .date-item strong {
+            margin-bottom: 3px;
+            font-size: 0.88rem;
+        }
+
+        .unal-app .date-item span {
+            color: var(--text-soft);
+            font-size: 0.77rem;
+        }
+
+        .unal-app .date-item>i {
+            color: var(--primary-dark);
+            font-size: 0.78rem;
+        }
+
+        /* ============================================================
+           RESPONSIVE
+        ============================================================ */
+        @media (max-height: 700px) {
+
+            .unal-app .band,
+            .unal-app .hero,
+            .unal-app .contact-band,
+            .unal-app .admission-cta {
+                min-height: auto;
+                padding: 80px 0;
+            }
+        }
+
+        @media (max-width: 1050px) {
+            .unal-app .admission-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .unal-app .special-admission-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .unal-app .tests-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 950px) {
+            .unal-app .hub-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .unal-app .contact-box {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .unal-app .band,
+            .unal-app .hero,
+            .unal-app .contact-band,
+            .unal-app .admission-cta {
+                min-height: auto;
+                padding: 70px 0;
+            }
+
+            .unal-app .hero h1 {
+                font-size: clamp(2.5rem, 8vw, 3.5rem);
+            }
+
+            .unal-app .hero-buttons {
+                flex-direction: column;
+            }
+
+            .unal-app .hub-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .unal-app .admission-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .unal-app .admission-card-featured {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .unal-app .admission-cta .app-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .unal-app .admission-cta .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .unal-app .modal {
+                padding: 12px;
+            }
+
+            .unal-app .modal-content {
+                padding: 28px 20px;
+            }
+
+            .unal-app .modal-header {
+                align-items: flex-start;
+            }
+
+            .unal-app .modal-header h2 {
+                font-size: 1.3rem;
+            }
+
+            .unal-app .date-item {
+                grid-template-columns: 34px 1fr;
+            }
+
+            .unal-app .date-item>i {
+                display: none;
+            }
+        }
+
+        /* ============================================================
+           AÑADIDOS VERSIÓN POSGRADO
+           Modales sin JavaScript: se abren con :target (enlace #modal-x)
+           y se cierran enlazando de vuelta a la sección de origen.
+        ============================================================ */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .unal-app .modal:target {
+            display: flex;
+        }
+
+        /* Bootstrap (plantilla Joomla) pone justify-content: space-between en .modal-header */
+        .unal-app .modal-header {
+            justify-content: flex-start;
+            border-bottom: none;
+            padding-left: 0;
+            padding-top: 0;
+        }
+
+        .unal-app a.hub-card,
+        .unal-app a.modal-overlay {
+            display: block;
+        }
+
+        .unal-app a.modal-close {
+            text-decoration: none;
+        }
+
+        /* Hero con 3 imágenes: ciclo de 18s (6s por imagen) */
+        .unal-app .hero-bg--3 .hero-bg__slide {
+            animation-name: heroFade3;
+            animation-duration: 18s;
+        }
+
+        @keyframes heroFade3 {
+            0%   { opacity: 0; transform: scale(1.08); }
+            8%   { opacity: 1; }
+            33%  { opacity: 1; }
+            41%  { opacity: 0; transform: scale(1); }
+            100% { opacity: 0; transform: scale(1); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .unal-app .hero-bg--3 {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: 1fr;
+            }
+        }
+
+        /* Enlace destacado dentro de un modal (p. ej. becas en el exterior) */
+        .unal-app .modal-link--featured {
+            border-color: var(--primary);
+            border-left: 4px solid var(--primary);
+            background: #fffcf2;
+        }
+
+        .unal-app .pill,
+        .unal-app .modal-link .pill,
+        .unal-app .modal-link .step-num {
+            display: inline-block;
+            margin-left: 6px;
+            padding: 1px 8px;
+            border-radius: 6px;
+            background: var(--primary);
+            color: var(--text-on-primary);
+            font-size: 0.66rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            vertical-align: middle;
+        }
+
+        /* Número de paso en el modal de recién admitidos */
+        .unal-app .step-num {
+            display: inline-block;
+            margin-right: 6px;
+            color: var(--primary-dark);
+            font-weight: 800;
+        }
+
+        /* Enlaces dentro de las respuestas del FAQ */
+        .unal-app details p a {
+            color: var(--primary-dark);
+            font-weight: 600;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body class="home">
+    <!-- Skip Links -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    <a href="#main-menu" class="skip-link">Saltar al menú principal</a>
+    <a href="#footer" class="skip-link">Saltar al pie de página</a>
+
+    <!-- 1. Servicios Institucionales -->
+    <nav id="services" aria-label="Servicios institucionales">
+        <div class="indicator d-none d-md-block" aria-hidden="true"></div>
+        <ul class="dropdown-menu"  role="list">
+            <li role="listitem"><a href="https://smartkey.xertica.com/cloudkey/a/unal.edu.co/user/login" target="_blank"
+                    rel="noopener noreferrer"><img
+                        src="https://minas.medellin.unal.edu.co/media/templates/site/unal/images/icnServEmail.png"
+                        width="32" height="32" alt="">Correo Electrónico</a></li>
+            <li role="listitem"><a href="https://dninfoa.unal.edu.co" target="_blank" rel="noopener noreferrer"><img
+                        src="https://minas.medellin.unal.edu.co/media/templates/site/unal/images/icnServSia.png"
+                        width="32" height="32" alt="">DNINFOA - SIA</a></li>
+            <li role="listitem"><a href="https://bibliotecas.unal.edu.co" target="_blank" rel="noopener noreferrer"><img
+                        src="https://minas.medellin.unal.edu.co/media/templates/site/unal/images/icnServLibrary.png"
+                        width="32" height="32" alt="">Bibliotecas</a></li>
+            <li role="listitem"><a href="https://personal.unal.edu.co" target="_blank" rel="noopener noreferrer"><img
+                        src="https://minas.medellin.unal.edu.co/media/templates/site/unal/images/icnServCall.png"
+                        width="32" height="32" alt="">Convocatorias</a></li>
+            <li role="listitem"><a href="https://identidad.unal.edu.co" target="_blank" rel="noopener noreferrer"><img
+                        src="https://minas.medellin.unal.edu.co/media/templates/site/unal/images/icnServIdentidad.png"
+                        width="32" height="32" alt="">Identidad UNAL</a></li>
+        </ul>
+    </nav>
+
+    <!-- 2. Header Principal UNAL -->
+    <header id="unalTop" role="banner">
+        <div class="logo">
+            <a href="https://unal.edu.co" aria-label="Ir a la página principal de la Universidad Nacional de Colombia">
+                <svg width="93%" height="93%" role="img" aria-labelledby="escudo-unal-title">
+                    <title id="escudo-unal-title">Escudo de la Universidad Nacional de Colombia</title>
+                    <image href="https://minas.medellin.unal.edu.co/media/templates/site/unal/images/escudoUnal.svg"
+                        width="100%" height="100%" class="hidden-print" />
+                </svg>
+                <img src="https://minas.medellin.unal.edu.co/media/templates/site/unal/images/escudoUnal_black.png"
+                    class="d-none d-print-block" alt="Escudo UNAL" />
+            </a>
+        </div>
+        <div class="seal">
+            <img class="d-print-none" alt="Escudo de la República de Colombia"
+                src="https://minas.medellin.unal.edu.co/media/templates/site/unal/images/sealColombia.png" width="66"
+                height="66" />
+            <img class="d-none d-print-block" alt="Escudo de la República de Colombia"
+                src="https://minas.medellin.unal.edu.co/media/templates/site/unal/images/sealColombia_black.png"
+                width="66" height="66" />
+        </div>
+        <div id="bs-navbar" class="navigation d-none d-md-block">
+            <div class="site-url" id="subdominio">
+                <a href='https://minas.medellin.unal.edu.co/'
+                    aria-label="Ir a la página de inicio">minas.medellin.unal.edu.co</a>
+            </div>
+            <nav class="navbar-dark mainMenu" id="main-menu" aria-label="Menú principal">
+                <div id="main_menu_container">
+                    <div class="btn-group">
+                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false" type="button">
+                            La Facultad <span class="caret" aria-hidden="true"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a class='dropdown-item' href='#'>Conoce la Facultad</a></li>
+                            <li><a class='dropdown-item' href='#'>Equipo Directivo</a></li>
+                            <li><a class='dropdown-item' href='#'>Áreas Curriculares</a></li>
+                        </ul>
+                    </div>
+                    <div class="btn-group menu_sedes">
+                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button"
+                            aria-haspopup="true" aria-expanded="false"
+                            aria-label="Sedes de la Universidad Nacional">Sedes<span class="caret"
+                                aria-hidden="true"></span></button>
+                        <ul class="dropdown-menu" id="sedes" role="menu">
+                            <li role="none"><a class="dropdown-item" href="https://bogota.unal.edu.co" target="_blank"
+                                    rel="noopener">Bogotá</a></li>
+                            <li role="none"><a class="dropdown-item" href="https://medellin.unal.edu.co" target="_blank"
+                                    rel="noopener">Medellín</a></li>
+                            <li role="none"><a class="dropdown-item" href="https://www.manizales.unal.edu.co"
+                                    target="_blank" rel="noopener">Manizales</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 3. Panel de Accesibilidad -->
+    <aside class="tx-unal-accesibilidad" aria-label="Panel de herramientas de accesibilidad">
+        <div id="panel-accesibilidad" class="panel-content container-fluid" role="region"
+            aria-label="Configuración de accesibilidad">
+            <div class="accesibilidad-container">
+                <div class="accesibilidad-grupo" role="group">
+                    <h4>Tamaño letra</h4>
+                    <div class="accesibilidad-botones">
+                        <button class="boton-panel" id="letra-disminuir" onclick="cambiarTamanioLetra('-')"
+                            type="button">A<sup aria-hidden="true">-</sup></button>
+                        <button class="boton-panel" id="letra-aumentar" onclick="cambiarTamanioLetra('+')"
+                            type="button">A<sup aria-hidden="true">+</sup></button>
+                        <input readonly class="letras-porcentaje" id="letter-percent" type="text" value="100%"
+                            tabindex="-1">
+                    </div>
+                </div>
+                <div class="accesibilidad-grupo" role="group">
+                    <h4>Contrastes</h4>
+                    <div class="accesibilidad-botones">
+                        <button class="boton-panel" onclick="cambiarContrastes(1)" type="button">1</button>
+                        <button class="boton-panel" onclick="cambiarContrastes(2)" type="button">2</button>
+                        <button class="boton-panel" onclick="cambiarContrastes(3)" type="button">3</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button id="pestania-accesibilidad" aria-expanded="false" aria-controls="panel-accesibilidad">Panel de
+            Accesibilidad</button>
+    </aside>
+
+    <!-- 4. CONTENIDO PRINCIPAL -->
+    <main id="main-content" role="main" tabindex="-1">
+        <div class="unal-app">
+
+            <!-- ==========================================
+                 1. HERO — FULL SCREEN (3 imágenes, ciclo 18s)
+            =========================================== -->
+            <section class="hero" id="inicio">
+                <div class="hero-bg hero-bg--3" aria-hidden="true">
+                    <div class="hero-bg__slide" style="background-image: url('img/Induccion_Posgrados_202602_02.jpg.jpeg');"></div>
+                    <div class="hero-bg__slide" style="background-image: url('img/hero-arco-minas.webp');"></div>
+                    <div class="hero-bg__slide" style="background-image: url('img/mural-cupula.webp');"></div>
+                </div>
+                <div class="app-container hero-content">
+                    <span class="eyebrow">Facultad de Minas · Sede Medellín</span>
+                    <h1>Información para estudiantes de posgrado</h1>
+                    <p>Especializaciones, maestrías y doctorados: encuentra en un solo lugar los servicios, trámites,
+                        plataformas y oportunidades que necesitas durante tu posgrado.</p>
+                    <div class="hero-buttons">
+                        <a href="#servicios" class="btn btn-primary">
+                            <i class="fa-solid fa-compass"></i> Explorar servicios
+                        </a>
+                        <a href="#modal-nuevo" class="btn btn-secondary">Soy recién admitido</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 2. SERVICIOS (mismas 6 categorías que pregrado)
+            =========================================== -->
+            <section class="band band--soft" id="servicios">
+                <div class="app-container">
+                    <div class="section-heading centered">
+                        <span class="section-tag">Servicios para estudiantes</span>
+                        <h2>Encuentra lo que necesitas</h2>
+                        <p>Selecciona una categoría para consultar información, recursos y enlaces relacionados.</p>
+                    </div>
+                    <div class="hub-grid">
+                        <a class="hub-card" href="#modal-academico">
+                            <div class="hub-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                            <h3>Vida académica</h3>
+                            <p>SIA, calendario, inscripción de asignaturas y normativa de posgrado.</p>
+                            <span>Ver información <i class="fa-solid fa-arrow-right"></i></span>
+                        </a>
+                        <a class="hub-card" href="#modal-bienestar">
+                            <div class="hub-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                            <h3>Bienestar y apoyos</h3>
+                            <p>SIBU, salud, acompañamiento, apoyos socioeconómicos y deporte.</p>
+                            <span>Ver información <i class="fa-solid fa-arrow-right"></i></span>
+                        </a>
+                        <a class="hub-card" href="#modal-tramites">
+                            <div class="hub-icon"><i class="fa-solid fa-file-lines"></i></div>
+                            <h3>Trámites estudiantiles</h3>
+                            <p>Solicitudes ante el Consejo de Facultad, certificados y grados.</p>
+                            <span>Ver información <i class="fa-solid fa-arrow-right"></i></span>
+                        </a>
+                        <a class="hub-card" href="#modal-oportunidades">
+                            <div class="hub-icon"><i class="fa-solid fa-earth-americas"></i></div>
+                            <h3>Convocatorias y becas</h3>
+                            <p>Becas en el exterior, estudiantes auxiliares, movilidad e investigación.</p>
+                            <span>Ver información <i class="fa-solid fa-arrow-right"></i></span>
+                        </a>
+                        <a class="hub-card" href="#modal-herramientas">
+                            <div class="hub-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                            <h3>Herramientas digitales</h3>
+                            <p>Correo, SIA, SIBU, bibliotecas, pago virtual y plataformas de clase.</p>
+                            <span>Ver información <i class="fa-solid fa-arrow-right"></i></span>
+                        </a>
+                        <a class="hub-card" href="#modal-admisiones">
+                            <div class="hub-icon"><i class="fa-solid fa-calendar-days"></i></div>
+                            <h3>Admisiones y programas de posgrado</h3>
+                            <p>Programas de la Facultad, perfiles, planes de estudio y proceso de admisión.</p>
+                            <span>Ver información <i class="fa-solid fa-arrow-right"></i></span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 3. VIDA EN EL CAMPUS
+                 Primeros auxilios M9 · Gimnasio M10 · Sala M9 · Carné
+            =========================================== -->
+            <section class="band band--cream" id="campus">
+                <div class="app-container">
+                    <div class="section-heading centered">
+                        <span class="section-tag">Vida en el campus</span>
+                        <h2>Lo que tienes a mano en la Facultad</h2>
+                        <p>Espacios y servicios del Campus Robledo que muchos estudiantes no conocen.</p>
+                    </div>
+
+                    <!-- Primeros auxilios (destacado) -->
+                    <div class="admission-block">
+                        <a class="admission-card admission-card-featured"
+                            href="https://minas.medellin.unal.edu.co/bienestar/salud">
+                            <div class="admission-icon"><i class="fa-solid fa-kit-medical"></i></div>
+                            <div>
+                                <h4>Primeros auxilios · Bloque M9, oficina 101</h4>
+                                <p>Atención prehospitalaria para malestar, trauma, urgencias y emergencias; también
+                                    inyectología (con fórmula médica) y toma de signos vitales.
+                                    <strong>Lunes a viernes 6:00 a.m. – 9:00 p.m. · Sábados 7:00 a.m. – 1:00 p.m.</strong><br>
+                                    ¿No puedes desplazarte? Marca <strong>911</strong> desde un teléfono interno, o desde
+                                    celular al <strong>312 478 2720</strong> o al <strong>604 430 9000 ext. 911</strong>.</p>
+                                <span class="admission-link">Ver la ruta de emergencia <i class="fa-solid fa-arrow-right"></i></span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="admission-block">
+                        <div class="admission-grid">
+                            <a class="admission-card" href="https://minas.medellin.unal.edu.co/bienestar/deportes#horarios">
+                                <div class="admission-icon"><i class="fa-solid fa-dumbbell"></i></div>
+                                <h4>Gimnasio · Bloque M10</h4>
+                                <p>Gimnasio renovado, con instructor en horario de atención.<br>
+                                    <strong>Lun – Jue:</strong> 9:00 a.m. – 12:00 m. y 1:00 – 7:00 p.m.<br>
+                                    <strong>Viernes:</strong> 8:00 a.m. – 1:00 p.m.<br>
+                                    El préstamo de implementos es en la oficina 101 del M10, con tu carné.</p>
+                                <span class="admission-link">Ver horarios y deportes <i class="fa-solid fa-arrow-right"></i></span>
+                            </a>
+                            <a class="admission-card"
+                                href="https://docs.google.com/forms/d/e/1FAIpQLSfUpOaUGqNui1tlbASRfnAvB1DbD7397qujLbh0ws1uST8QoQ/viewform">
+                                <div class="admission-icon"><i class="fa-solid fa-people-group"></i></div>
+                                <h4>Sala de reuniones · Bloque M9</h4>
+                                <p>Sala que puedes reservar para actividades de grupos estudiantiles. Revisa primero el
+                                    calendario de disponibilidad en la página de Acompañamiento Integral y luego haz la
+                                    reserva en el formulario.</p>
+                                <span class="admission-link">Reservar la sala <i class="fa-solid fa-arrow-right"></i></span>
+                            </a>
+                            <a class="admission-card" href="#modal-carne">
+                                <div class="admission-icon"><i class="fa-solid fa-id-card"></i></div>
+                                <h4>Carné estudiantil</h4>
+                                <p>Lo necesitas para entrar a la Universidad, sacar libros y pedir implementos
+                                    deportivos. Mira cómo obtenerlo, revalidarlo o reponerlo.</p>
+                                <span class="admission-link">Ver información del carné <i class="fa-solid fa-arrow-right"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 4. FAQ
+            =========================================== -->
+            <section class="band band--white" id="preguntas">
+                <div class="app-container">
+                    <div class="section-heading centered">
+                        <span class="section-tag">Preguntas frecuentes</span>
+                        <h2>Resuelve tus dudas más comunes</h2>
+                    </div>
+                    <div class="faq-container">
+                        <details>
+                            <summary>Vengo de otra universidad, ¿por dónde empiezo? <i class="fa-solid fa-plus"></i></summary>
+                            <p>Activa primero tu correo @unal.edu.co, que es la llave de todos los servicios. Luego
+                                revisa el SIA para tu matrícula e inscripción de asignaturas, y el SIBU para los
+                                servicios de Bienestar. Tienes la ruta completa en
+                                <a href="#modal-nuevo">Soy recién admitido</a>.</p>
+                        </details>
+                        <details>
+                            <summary>¿Dónde consulto el perfil y el plan de estudios de mi programa? <i class="fa-solid fa-plus"></i></summary>
+                            <p>La información de cada especialización, maestría y doctorado la publica la Vicedecanatura
+                                Académica en <a href="https://minas.medellin.unal.edu.co/formacion/posgrados">Formación ›
+                                    Posgrados</a>.</p>
+                        </details>
+                        <details>
+                            <summary>¿Dónde hago una solicitud ante el Consejo de Facultad? <i class="fa-solid fa-plus"></i></summary>
+                            <p>Las solicitudes estudiantiles (inscripción o cancelación de asignaturas, reingresos,
+                                reservas de cupo y otras) se tramitan en
+                                <a href="https://minas.medellin.unal.edu.co/estudiantes/gestion-de-asuntos-estudiantiles/gae-solicitudes-estudiantiles">Gestión
+                                    de Asuntos Estudiantiles</a>.</p>
+                        </details>
+                        <details>
+                            <summary>¿Hay becas o estancias en el exterior para posgrado? <i class="fa-solid fa-plus"></i></summary>
+                            <p>Sí. La Facultad publica convocatorias de universidades e instituciones del exterior en
+                                <a href="https://minas.medellin.unal.edu.co/investigacion/invitaciones-externas">Invitaciones
+                                    externas</a>. Es una sección poco conocida, revísala con frecuencia.</p>
+                        </details>
+                        <details>
+                            <summary>¿Dónde revalido o repongo mi carné? <i class="fa-solid fa-plus"></i></summary>
+                            <p>En la División de Registro y Matrícula de la Sede, teléfono (+57) 604 430 9666, correo
+                                <a href="mailto:posgrado_med@unal.edu.co">posgrado_med@unal.edu.co</a>. Más detalles en
+                                <a href="#modal-carne">Carné estudiantil</a>.</p>
+                        </details>
+                        <details>
+                            <summary>¿Qué necesito para graduarme? <i class="fa-solid fa-plus"></i></summary>
+                            <p>Consulta requisitos, fechas y proceso en <a href="https://minas.medellin.unal.edu.co/graduandos">Graduandos</a>.
+                                El paz y salvo con Biblioteca y Bienestar lo gestiona automáticamente la Secretaría de
+                                Facultad: solo asegúrate de no tener préstamos ni sanciones pendientes.</p>
+                        </details>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 5. CONTACTO FULL WIDTH
+            =========================================== -->
+            <section class="contact-band" id="contacto">
+                <div class="app-container">
+                    <div class="contact-box">
+                        <div>
+                            <span class="section-tag light">Orientación</span>
+                            <h2>¿No sabes dónde realizar tu solicitud?</h2>
+                            <p>Consulta el área adecuada según el tipo de trámite o necesidad que tengas.</p>
+                        </div>
+                        <div class="contact-options">
+                            <a href="https://minas.medellin.unal.edu.co/estudiantes/gestion-de-asuntos-estudiantiles">
+                                <i class="fa-solid fa-user-graduate"></i>
+                                <div><strong>Gestión de Asuntos Estudiantiles</strong><span>Solicitudes ante el Consejo
+                                        de Facultad</span></div>
+                            </a>
+                            <a href="https://minas.medellin.unal.edu.co/bienestar/inicio">
+                                <i class="fa-solid fa-heart"></i>
+                                <div><strong>Bienestar Universitario</strong><span>Bloque M4, oficina 002 · (604) 425
+                                        5032</span></div>
+                            </a>
+                            <a href="mailto:posgrado_med@unal.edu.co">
+                                <i class="fa-solid fa-file-circle-check"></i>
+                                <div><strong>Registro y Matrícula (posgrado)</strong><span>posgrado_med@unal.edu.co ·
+                                        (604) 430 9666</span></div>
+                            </a>
+                            <a href="tel:+576044255000">
+                                <i class="fa-solid fa-phone"></i>
+                                <div><strong>Facultad de Minas</strong><span>Cra. 80 # 65-223, Robledo · +57 (604) 425
+                                        5000</span></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div><!-- /.unal-app -->
+    </main>
+
+    <!-- 5. MODALES (sin JavaScript: se abren con #id y se cierran volviendo a la sección) -->
+    <div class="unal-app">
+
+        <!-- MODAL RECIÉN ADMITIDO -->
+        <div class="modal" id="modal-nuevo">
+            <a class="modal-overlay" href="#inicio" aria-label="Cerrar"></a>
+            <div class="modal-content">
+                <a class="modal-close" href="#inicio" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
+                <div class="modal-header">
+                    <div class="modal-icon"><i class="fa-solid fa-compass"></i></div>
+                    <div><span class="modal-label">Recién admitido</span>
+                        <h2>Primeros pasos en tu posgrado</h2>
+                    </div>
+                </div>
+                <p class="modal-intro">Muchos llegan de otras universidades y no conocen los sistemas de la UNAL.
+                    Esta es la ruta para empezar sin perderte.</p>
+                <div class="modal-links">
+                    <a href="https://identidad.unal.edu.co" class="modal-link">
+                        <div><strong><span class="step-num">01</span>Correo e identidad</strong><span>Tu cuenta
+                                @unal.edu.co es la llave de acceso a todos los servicios.</span></div><i
+                            class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://dninfoa.unal.edu.co" class="modal-link">
+                        <div><strong><span class="step-num">02</span>Matrícula en el SIA</strong><span>Inscribe
+                                asignaturas y revisa tu estado académico.</span></div><i
+                            class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="#modal-carne" class="modal-link">
+                        <div><strong><span class="step-num">03</span>Tu carné</strong><span>Lo necesitas para entrar al
+                                campus y usar varios servicios.</span></div><i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="https://minas.medellin.unal.edu.co/estudiantes/gestion-de-asuntos-estudiantiles" class="modal-link">
+                        <div><strong><span class="step-num">04</span>Tus trámites</strong><span>Solicitudes ante el
+                                Consejo en Gestión de Asuntos Estudiantiles.</span></div><i
+                            class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="http://www.sibu.unal.edu.co/login.jsp" class="modal-link">
+                        <div><strong><span class="step-num">05</span>Bienestar</strong><span>Acompañamiento, salud y
+                                apoyos socioeconómicos desde el SIBU.</span></div><i
+                            class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL ACADÉMICO -->
+        <div class="modal" id="modal-academico">
+            <a class="modal-overlay" href="#servicios" aria-label="Cerrar"></a>
+            <div class="modal-content">
+                <a class="modal-close" href="#servicios" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
+                <div class="modal-header">
+                    <div class="modal-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <div><span class="modal-label">Vida académica</span>
+                        <h2>Gestiona tu información académica</h2>
+                    </div>
+                </div>
+                <p class="modal-intro">Consulta los principales recursos relacionados con tu proceso académico.</p>
+                <div class="modal-links">
+                    <a href="https://dninfoa.unal.edu.co" class="modal-link">
+                        <div><strong>SIA</strong><span>Asignaturas, notas, horarios e historia académica.</span></div><i
+                            class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://minas.medellin.unal.edu.co/estudiantes/gestion-de-asuntos-estudiantiles/gae-calendarios"
+                        class="modal-link">
+                        <div><strong>Calendario académico</strong><span>Fechas oficiales de cada periodo
+                                académico.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://dninfoa.unal.edu.co/docs/Infografia_inscripcion_asignaturas.pdf" class="modal-link">
+                        <div><strong>Inscripción de asignaturas</strong><span>Inscripción, adición y
+                                cancelación.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://minas.medellin.unal.edu.co/estudiantes/gestion-de-asuntos-estudiantiles/gae-normativa"
+                        class="modal-link">
+                        <div><strong>Normativa estudiantil</strong><span>Estatuto Estudiantil, derechos, deberes y
+                                normativa de posgrado.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL BIENESTAR -->
+        <div class="modal" id="modal-bienestar">
+            <a class="modal-overlay" href="#servicios" aria-label="Cerrar"></a>
+            <div class="modal-content">
+                <a class="modal-close" href="#servicios" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
+                <div class="modal-header">
+                    <div class="modal-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <div><span class="modal-label">Bienestar Universitario</span>
+                        <h2>Bienestar y apoyos</h2>
+                    </div>
+                </div>
+                <p class="modal-intro">Servicios para tu bienestar y permanencia. Oficina de Bienestar de la
+                    Facultad: Bloque M4, oficina 002 · (604) 425 5032.</p>
+                <div class="modal-links">
+                    <a href="http://www.sibu.unal.edu.co/login.jsp" class="modal-link">
+                        <div><strong>SIBU</strong><span>Servicios, inscripciones y convocatorias de Bienestar.</span></div><i
+                            class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://minas.medellin.unal.edu.co/bienestar/salud" class="modal-link">
+                        <div><strong>Salud y primeros auxilios</strong><span>Atención prehospitalaria en el Bloque M9,
+                                oficina 101. Lun–Vie 6:00 a.m.–9:00 p.m., sáb 7:00 a.m.–1:00 p.m.</span></div><i
+                            class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://minas.medellin.unal.edu.co/bienestar/acompanamiento-integral" class="modal-link">
+                        <div><strong>Acompañamiento Integral</strong><span>Asesoría psicosocial, talleres y grupos
+                                estudiantiles.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://minas.medellin.unal.edu.co/bienestar/gestion-y-fomento-socioeconomico"
+                        class="modal-link">
+                        <div><strong>Gestión y Fomento Socioeconómico</strong><span>Apoyos y convocatorias
+                                socioeconómicas.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://minas.medellin.unal.edu.co/bienestar/deportes" class="modal-link">
+                        <div><strong>Actividad física y deporte</strong><span>Gimnasio del Bloque M10, torneos internos
+                                y préstamo de implementos.</span></div><i
+                            class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://minas.medellin.unal.edu.co/bienestar/linea-de-atencion" class="modal-link">
+                        <div><strong>Líneas de atención</strong><span>Canales de ayuda y orientación.</span></div><i
+                            class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL TRÁMITES -->
+        <div class="modal" id="modal-tramites">
+            <a class="modal-overlay" href="#servicios" aria-label="Cerrar"></a>
+            <div class="modal-content">
+                <a class="modal-close" href="#servicios" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
+                <div class="modal-header">
+                    <div class="modal-icon"><i class="fa-solid fa-file-lines"></i></div>
+                    <div><span class="modal-label">Facultad de Minas</span>
+                        <h2>Trámites estudiantiles</h2>
+                    </div>
+                </div>
+                <p class="modal-intro">Consulta los principales trámites y solicitudes de posgrado.</p>
+                <div class="modal-links">
+                    <a href="https://minas.medellin.unal.edu.co/estudiantes/gestion-de-asuntos-estudiantiles/gae-solicitudes-estudiantiles"
+                        class="modal-link">
+                        <div><strong>Solicitudes ante el Consejo de Facultad</strong><span>Reingresos, reservas de
+                                cupo, cancelaciones y demás solicitudes.</span></div><i
+                            class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://minas.medellin.unal.edu.co/estudiantes/gestion-de-asuntos-estudiantiles/gae-solicitudes-estudiantiles/gae-solicitud-inscripcion-adicion-asignatura-s-y-o-actividad-es-academica-s"
+                        class="modal-link">
+                        <div><strong>Inscripción o adición de asignaturas</strong><span>Requisitos y procedimiento.</span></div><i
+                            class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://minas.medellin.unal.edu.co/estudiantes/gestion-de-asuntos-estudiantiles/gae-solicitudes-estudiantiles/gae-solicitud-cancelacion-de-asignatura-s"
+                        class="modal-link">
+                        <div><strong>Cancelación de asignaturas</strong><span>Requisitos y procedimiento.</span></div><i
+                            class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://minas.medellin.unal.edu.co/graduandos" class="modal-link">
+                        <div><strong>Graduandos</strong><span>Requisitos, fechas y proceso para tu grado.</span></div><i
+                            class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://pagovirtual.unal.edu.co/" class="modal-link">
+                        <div><strong>Certificados y constancias</strong><span>Solicitud y pago en Pago Virtual.</span></div><i
+                            class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL CONVOCATORIAS -->
+        <div class="modal" id="modal-oportunidades">
+            <a class="modal-overlay" href="#servicios" aria-label="Cerrar"></a>
+            <div class="modal-content">
+                <a class="modal-close" href="#servicios" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
+                <div class="modal-header">
+                    <div class="modal-icon"><i class="fa-solid fa-earth-americas"></i></div>
+                    <div><span class="modal-label">Convocatorias</span>
+                        <h2>Convocatorias y becas</h2>
+                    </div>
+                </div>
+                <p class="modal-intro">Apoyos vigentes para posgrado, incluidas oportunidades que suelen pasar
+                    desapercibidas.</p>
+                <div class="modal-links">
+                    <a href="https://minas.medellin.unal.edu.co/investigacion/invitaciones-externas"
+                        class="modal-link modal-link--featured">
+                        <div><strong>Invitaciones externas · Becas en el exterior <span class="pill">Poco conocida</span></strong><span>Becas
+                                y estancias de universidades del exterior. Casi nadie sabe que existe esta sección, y por
+                                eso casi nadie se postula.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="http://www.sibu.unal.edu.co/login.jsp" class="modal-link">
+                        <div><strong>Estudiantes auxiliares</strong><span>Convocatoria semestral.</span></div><i
+                            class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://minas.medellin.unal.edu.co/movilidad#detalle-movilidad" class="modal-link">
+                        <div><strong>Movilidad académica</strong><span>Intercambios y pasantías nacionales e
+                                internacionales.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://minas.medellin.unal.edu.co/investigacion" class="modal-link">
+                        <div><strong>Convocatorias de investigación</strong><span>Grupos, semilleros y convocatorias de
+                                la Vicedecanatura.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://www.medellin.unal.edu.co/~sede/estudiantes/convocatorias.html" class="modal-link">
+                        <div><strong>Convocatorias UNAL</strong><span>Convocatorias de apoyo de la Sede.</span></div><i
+                            class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL HERRAMIENTAS -->
+        <div class="modal" id="modal-herramientas">
+            <a class="modal-overlay" href="#servicios" aria-label="Cerrar"></a>
+            <div class="modal-content">
+                <a class="modal-close" href="#servicios" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
+                <div class="modal-header">
+                    <div class="modal-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                    <div><span class="modal-label">Recursos digitales</span>
+                        <h2>Sistemas que vas a usar</h2>
+                    </div>
+                </div>
+                <p class="modal-intro">Qué es cada uno y para qué sirve, pensado para quien recién llega a la
+                    Universidad.</p>
+                <div class="modal-links">
+                    <a href="https://smartkey.xertica.com/cloudkey/a/unal.edu.co/user/login" class="modal-link">
+                        <div><strong>Correo institucional</strong><span>Cuenta @unal.edu.co, acceso a todos los
+                                servicios.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://identidad.unal.edu.co" class="modal-link">
+                        <div><strong>Identidad UNAL</strong><span>Gestión de tu cuenta y contraseñas.</span></div><i
+                            class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://dninfoa.unal.edu.co" class="modal-link">
+                        <div><strong>SIA · DNINFOA</strong><span>Inscripción de asignaturas, historia académica y
+                                notas.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="http://www.sibu.unal.edu.co/login.jsp" class="modal-link">
+                        <div><strong>SIBU</strong><span>Sistema de Información de Bienestar Universitario.</span></div><i
+                            class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://bibliotecas.unal.edu.co/sede-medellin" class="modal-link">
+                        <div><strong>Bibliotecas UNAL</strong><span>Catálogo, bases de datos y recursos
+                                electrónicos.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://pagovirtual.unal.edu.co/" class="modal-link">
+                        <div><strong>Pago Virtual</strong><span>Pago de derechos académicos y certificados.</span></div><i
+                            class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://unvirtual.medellin.unal.edu.co/login/index.php" class="modal-link">
+                        <div><strong>UNVirtual</strong><span>Aulas y recursos virtuales de aprendizaje.</span></div><i
+                            class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://minaslap.net/login/index.php" class="modal-link">
+                        <div><strong>Minaslap</strong><span>Plataforma de cursos de la Facultad de Minas.</span></div><i
+                            class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL ADMISIONES Y PROGRAMAS -->
+        <div class="modal" id="modal-admisiones">
+            <a class="modal-overlay" href="#servicios" aria-label="Cerrar"></a>
+            <div class="modal-content">
+                <a class="modal-close" href="#servicios" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
+                <div class="modal-header">
+                    <div class="modal-icon"><i class="fa-solid fa-calendar-days"></i></div>
+                    <div><span class="modal-label">Admisiones Posgrado</span>
+                        <h2>Admisiones y programas de posgrado</h2>
+                    </div>
+                </div>
+                <p class="modal-intro">La Facultad ofrece especializaciones, maestrías y doctorados. La información de
+                    cada programa la publica la Vicedecanatura Académica.</p>
+                <div class="modal-links">
+                    <a href="https://minas.medellin.unal.edu.co/formacion/posgrados" class="modal-link">
+                        <div><strong>Programas de posgrado</strong><span>Perfiles, planes de estudio y contacto de cada
+                                programa.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://admisiones.unal.edu.co/posgrado/" class="modal-link">
+                        <div><strong>Admisiones UNAL · Posgrado</strong><span>Convocatorias, inscripción y
+                                fechas.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://registroymatricula.medellin.unal.edu.co/" class="modal-link">
+                        <div><strong>Registro y Matrícula</strong><span>Instructivo de admitidos y formalización de
+                                matrícula.</span></div><i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL CARNÉ -->
+        <div class="modal" id="modal-carne">
+            <a class="modal-overlay" href="#campus" aria-label="Cerrar"></a>
+            <div class="modal-content">
+                <a class="modal-close" href="#campus" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
+                <div class="modal-header">
+                    <div class="modal-icon"><i class="fa-solid fa-id-card"></i></div>
+                    <div><span class="modal-label">Registro y Matrícula</span>
+                        <h2>Carné estudiantil</h2>
+                    </div>
+                </div>
+                <p class="modal-intro">El carné te identifica como estudiante. Lo necesitas para entrar a la
+                    Universidad, prestar libros en biblioteca e implementos deportivos en el Bloque M10. Lo gestiona la
+                    División de Registro y Matrícula de la Sede, no la Facultad.</p>
+                <div class="modal-links">
+                    <a href="https://registroymatricula.medellin.unal.edu.co/" class="modal-link">
+                        <div><strong>Primer carné (admitidos)</strong><span>Se solicita como parte del proceso de
+                                admitidos, siguiendo el instructivo de cada periodo, y se entrega de forma presencial en
+                                Registro y Matrícula. Si te admitieron, el primer carné no tiene costo.</span></div><i
+                            class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="mailto:posgrado_med@unal.edu.co" class="modal-link">
+                        <div><strong>Revalidación</strong><span>Registro y Matrícula · (604) 430 9666 ·
+                                posgrado_med@unal.edu.co</span></div><i class="fa-solid fa-envelope"></i>
+                    </a>
+                    <a href="https://registroymatricula.medellin.unal.edu.co/" class="modal-link">
+                        <div><strong>Pérdida o reposición</strong><span>La reposición tiene costo. Si no reclamas el
+                                carné en el periodo en que lo pediste, se destruye y debes solicitarlo de nuevo.</span></div><i
+                            class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+                <div class="modal-tip"><i class="fa-solid fa-lightbulb"></i>
+                    <div><strong>Tip</strong>
+                        <p>Al solicitarlo puedes pedir que tu carné incluya el servicio de transporte Cívica del Metro
+                            de Medellín.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. FOOTER INSTITUCIONAL -->
+    <footer id="pie" role="contentinfo">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>&copy; 2026 Universidad Nacional de Colombia - Sede Medellín - Facultad de Minas</p>
+                    <p><small>Facultad de Minas – Sede Medellín. Todos los derechos reservados.</small></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts UNAL -->
+    <script src="https://minas.medellin.unal.edu.co/media/templates/site/unal/js/jquery.js?2bc458"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://minas.medellin.unal.edu.co/media/templates/site/unal/js/bootstrap.min.js?2bc458"></script>
+    <script src="https://minas.medellin.unal.edu.co/media/templates/site/unal/js/unal.js?2bc458"></script>
+    <script src="https://minas.medellin.unal.edu.co/media/templates/site/unal/js/accesibilidad.js?2bc458"></script>
+</body>
+
+</html>
